@@ -1,4 +1,4 @@
-package Database.domain;
+package database.domain;
 
 import jakarta.persistence.*;
 

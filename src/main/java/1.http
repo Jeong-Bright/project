@@ -1,3 +1,8 @@
 ###
-POST https://www.jbnu.ac.kr/kor/skin/member/login/login.php
+POST http://localhost:8080/basic/new
 Content-Type: application/json
+
+{
+  "id": "202117072",
+  "password": "cider123"
+}

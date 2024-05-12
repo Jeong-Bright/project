@@ -1,19 +1,19 @@
-package Database.domain;
+package database.domain;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Student {
 
     @Id
     @Column(name = "STUDENT_ID")
-    private Long studentId;
+    private String studentId;
     @Column(name = "STUDENT_PWD")
     private String password;
     @Column(name = "STUDENT_NAME")
@@ -23,7 +23,4 @@ public class Student {
     @Column(name = "STUDENT_CREDIT")
     private double credit;
 
-    public Student() {
-
-    }
 }
