@@ -1,5 +1,5 @@
 ###
-POST http://localhost:8080/basic/new
+POST http://localhost:8080/
 Content-Type: application/json
 
 {

@@ -1,17 +1,22 @@
 package database.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
 public class Lecture {
 
     public Lecture() {
     }
 
     @Id
+    @GeneratedValue
     @Column(name = "LECTURE_ID")
     private Long id;
     @Column(name = "LECTURE_NAME")
@@ -20,8 +25,7 @@ public class Lecture {
     private String professor;
     @Column(name = "DEPARTMENT")
     private String department;
-    @Lob
-    @Column(name = "LECTURE_INFO")
+    @Column(name = "LECTURE_INFO", length = 65535)
     private String information;
     @Column(name = "LECTURE_DIVIDE")
     private int devide;

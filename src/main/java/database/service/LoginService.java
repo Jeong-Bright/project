@@ -8,9 +8,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -21,14 +21,11 @@ public class LoginService {
     @Autowired
     private final StudentRepository studentRepository;
 
-    public boolean loginCheck(LoginForm loginForm) {
+    public Optional<Student> loginCheck(LoginForm loginForm) {
         System.out.println("LoginService.loginCheck");
-        boolean studentId = studentRepository.existsStudentByStudentId(loginForm.getId());
-        boolean studentPwd = studentRepository.existsStudentByPassword(loginForm.getPassword());
+        Optional<Student> login = studentRepository.findStudentsByStudentIdAndAndPassword(loginForm.getId(), loginForm.getPassword());
 
-        if(!studentId) return false;
-        if(!studentPwd) return false;
-        return true;
+        return login;
     }
 
     public List<Student> user() {

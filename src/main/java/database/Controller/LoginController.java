@@ -1,5 +1,6 @@
 package database.Controller;
 
+import database.domain.Student;
 import org.springframework.ui.Model;
 import database.service.LoginService;
 import jakarta.validation.Valid;
@@ -10,6 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -31,12 +34,11 @@ public class LoginController {
         if (result.hasErrors()) {
             return "/";
         }
+        Optional<Student> student = loginService.loginCheck(loginForm);
 
-        boolean check = loginService.loginCheck(loginForm);
-        System.out.println("check = " + check);
-        if (check) {
+        if (student.isPresent()) {
+            System.out.println("성공");
             return "basic/intro";
-
         }
         else {
             System.out.println("오류 발생");

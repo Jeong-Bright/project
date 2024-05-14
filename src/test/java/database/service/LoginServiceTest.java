@@ -12,6 +12,7 @@ import database.repository.StudentRepository;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,8 +21,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LoginServiceTest {
 
     @Autowired
-    private LoginController loginController;
-
+//    private LoginController loginController;
+//    private LoginService loginService;
+    private StudentRepository studentRepository;
     @Test
     void all() {
 //        List<Student> all = studentRepository.findAll();
@@ -30,9 +32,10 @@ class LoginServiceTest {
                 .password("cider123")
                 .name("전정현")
                 .phone("01077238081")
+                .email("wjswjdgus333@gmail.com")
                 .credit(0)
                 .build();
-//        studentRepository.save(student);
+        studentRepository.save(student);
 /*        boolean studentId = studentRepository.existsStudentByStudentId("202117072");
         assertThat(studentId).isEqualTo(true);
         boolean byPassword = studentRepository.existsStudentByPassword("cider123");
@@ -47,6 +50,10 @@ class LoginServiceTest {
         LoginForm loginForm = new LoginForm();
         loginForm.setId("202117072");
         loginForm.setPassword("cider123");
+//        Optional<Student> student = loginService.loginCheck(loginForm);
+//        assertThat(student).isNotNull();
+
+
 //        String login = loginController.login(loginForm);
 //        System.out.println(login);
     }

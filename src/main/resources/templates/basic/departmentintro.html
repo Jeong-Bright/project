@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>링크로 이동하는 사이트</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-top: 50px; /* 전체적으로 화면을 아래로 내립니다. */
+      background-color: #f9f9f9;
+    }
+
+    /* 섹션 제목 스타일 */
+    .section-title {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* 링크 박스 스타일 */
+    .link-box {
+      width: 18%; /* 링크 박스의 너비를 줄입니다. */
+      background-color: #fff;
+      padding: 20px;
+      margin: 20px 2%; /* 링크 박스들의 위아래 간격을 늘리고 좌우 간격을 조정합니다. */
+      text-align: center;
+      display: inline-block;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+      vertical-align: top; /* 위 링크 박스와 아래 링크 박스가 맞춰서 정렬됩니다. */
+    }
+
+    /* 링크 박스 호버 효과 */
+    .link-box:hover {
+      transform: translateY(-5px);
+    }
+
+    /* 링크 스타일 */
+    .link-box a {
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* 세션과 링크박스를 감싸는 div */
+    .section-container {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+
+  </style>
+</head>
+<body>
+<!-- 16개의 링크 -->
+<div class="links" style="text-align: center;">
+  <h2 class="section-title">공과대학</h2>
+  <div class="link-box">
+    <a href="https://archi.jbnu.ac.kr/archi/7543/subview.do">건축공학과</a>
+  </div>
+  <div class="link-box">
+    <a href="https://polynano.jbnu.ac.kr/polynano/4899/subview.do">고분자나노공학과</a>
+  </div>
+  <div class="link-box">
+    <a href="https://org.jbnu.ac.kr/org/7098/subview.do">유기소재섬유공학과</a>
+  </div>
+  <div class="link-box">
+    <a href="https://me.jbnu.ac.kr/me/7564/subview.do">기계공학과</a>
+  </div>
+  <div class="link-box">
+    <a href="https://mdesign.jbnu.ac.kr/mdesign/7600/subview.do">기계설계공학부</a>
+  </div>
+  <div class="link-box">
+    <a href="https://mse.jbnu.ac.kr/mse2/23482/subview.do">기계시스템공학부</a>
+  </div>
+  <div class="link-box">
+    <a href="https://urban.jbnu.ac.kr/urban/5010/subview.do">도시공학과</a>
+  </div>
+  <div class="link-box">
+    <a href="https://biomedical.jbnu.ac.kr/bie/3261/subview.do">바이오메디컬공학부</a>
+  </div>
+  <div class="link-box">
+    <a href="https://ise.jbnu.ac.kr/ise/1845/subview.do">산업정보시스템공학과</a>
+  </div>
+  <div class="link-box">
+    <a href="https://software.jbnu.ac.kr/software/3330/subview.do">소프트웨어공학과</a>
+  </div>
+  <div class="link-box">
+    <a href="https://atom.jbnu.ac.kr/atom/5046/subview.do">양자시스템공학과</a>
+  </div>
+  <div class="link-box">
+    <a href="https://ee.jbnu.ac.kr/ee/3471/subview.do">전기공학과</a>
+  </div>
+  <div class="link-box">
+    <a href="https://eei.jbnu.ac.kr/eei/7675/subview.do">전자공학부</a>
+  </div>
+  <div class="link-box">
+    <a href="https://csai.jbnu.ac.kr/csai/29022/subview.do">컴퓨터인공지능학부</a>
+  </div>
+  <div class="link-box">
+    <a href="https://aerospace.jbnu.ac.kr/aerospace/15109/subview.do">항공우주공학과</a>
+  </div>
+  <div class="link-box">
+    <a href="https://che.jbnu.ac.kr/che/7384/subview.do">화학공학부</a>
+  </div>
+</div>
+
+<!-- 가로 구분선 -->
+<div class="horizontal-line"></div>
+
+<!-- 섹션: 신소재 공학부 -->
+<div class="section-container">
+  <h2 class="section-title">신소재 공학부</h2>
+  <div class="link-box">
+    <a href="https://metal.jbnu.ac.kr/metal1/30904/subview.do">금속시스템공학</a>
+  </div>
+  <div class="link-box">
+    <a href="https://materials.jbnu.ac.kr/materials/3378/subview.do">전자재료공학</a>
+  </div>
+  <div class="link-box">
+    <a href="https://itmat.jbnu.ac.kr/itmat/5672/subview.do">정보소재공학</a>
+  </div>
+</div>
+
+<!-- 섹션: 융합기술공학부 -->
+<div class="section-container">
+  <h2 class="section-title">융합기술공학부</h2>
+  <div class="link-box">
+    <a href="https://cte.jbnu.ac.kr/cte/3425/subview.do">IT융합기전공학</a>
+  </div>
+  <div class="link-box">
+    <a href="https://itase.jbnu.ac.kr/itase/7639/subview.do">IT응용시스템공학</a>
+  </div>
+</div>
+
+<!-- 섹션: 토목환경에너지자원 -->
+<div class="section-container">
+  <h2 class="section-title">토목환경에너지자원</h2>
+  <div class="link-box">
+    <a href="https://civil.jbnu.ac.kr/civil/5080/subview.do">토목공학</a>
+  </div>
+  <div class="link-box">
+    <a href="https://envi.jbnu.ac.kr/envi/7716/subview.do">환경공학</a>
+  </div>
+  <div class="link-box">
+    <a href="https://res.jbnu.ac.kr/res/20183/subview.do">자원에너지공학</a>
+  </div>
+</div>
+</body>
+</html>
