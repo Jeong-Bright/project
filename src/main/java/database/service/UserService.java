@@ -1,7 +1,7 @@
 package database.service;
 
 
-import database.Controller.LoginForm;
+import database.controller.LoginForm;
 import database.domain.Student;
 import database.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Slf4j
 //@Transactional(readOnly = true)
-public class LoginService {
+public class UserService {
 
     @Autowired
     private final StudentRepository studentRepository;
@@ -30,6 +30,13 @@ public class LoginService {
 
     public List<Student> user() {
         return studentRepository.findAll();
+    }
+
+    public Student getStudent(Long studentId) {
+
+        Optional<Student> student = studentRepository.findStudentByStudentId(String.valueOf(studentId));
+        return student.orElse(null);
+
     }
 
 }

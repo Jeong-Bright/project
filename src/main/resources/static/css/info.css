@@ -1,0 +1,177 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile img:hover {
+    transform: scale(1.1);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00796b;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.buttons button:hover {
+    background-color: #004d40;
+}
+
+.info {
+    margin-bottom: 20px;
+}
+
+.info-field {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-field label {
+    flex: 1;
+    text-align: left;
+}
+
+.info-field input {
+    flex: 2;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.edit-btn {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00796b;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.edit-btn:hover {
+    background-color: #004d40;
+}
+
+#confirm-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00796b;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#confirm-btn:hover {
+    background-color: #004d40;
+}
+
+.additional-options {
+    margin-top: 30px;
+}
+
+#password-change-btn {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00796b;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#password-change-btn:hover {
+    background-color: #004d40;
+}
+
+.dropdowns {
+    display: grid;
+    gap: 15px;
+}
+
+.dropdowns label {
+    display: block;
+    text-align: left;
+}
+
+.dropdowns select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#confirm-btn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.back-button {
+    position: fixed;
+    top: 100px;
+    right: calc(50px + 50px);
+    width: 100px;
+    height: 100px;
+    background-color: #00796b;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: transform 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: #004d40;
+    transform: translate(-5px, -5px);
+}

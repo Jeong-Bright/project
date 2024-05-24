@@ -7,6 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column; /* 추가: 중앙 위쪽에 환영 메시지를 위치시키기 위해 수직 정렬을 설정 */
 }
 
 .container {
@@ -15,6 +16,11 @@ body {
 
 h1 {
     color: #333;
+}
+
+.welcome-message {
+    color: #007bff; /* 환영 메시지 색상 설정 */
+    margin-bottom: 20px; /* 환영 메시지와 타이틀 사이의 간격 설정 */
 }
 
 .links {

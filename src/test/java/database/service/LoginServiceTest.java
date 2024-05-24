@@ -1,17 +1,15 @@
 package database.service;
 
-import database.Controller.LoginController;
-import database.Controller.LoginForm;
-import org.assertj.core.api.Assertions;
+import database.controller.LoginForm;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import database.domain.Student;
 import database.repository.StudentRepository;
+import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,18 +20,18 @@ class LoginServiceTest {
 
     @Autowired
 //    private LoginController loginController;
-//    private LoginService loginService;
+//    private UserService userService;
     private StudentRepository studentRepository;
     @Test
     void all() {
 //        List<Student> all = studentRepository.findAll();
         Student student = Student.builder()
-                .studentId("202117072")
-                .password("cider123")
-                .name("전정현")
-                .phone("01077238081")
-                .email("wjswjdgus333@gmail.com")
                 .credit(0)
+                .email("wjswjdgus333@gmail.com")
+                .name("김성강")
+                .password("power123")
+                .phone("01012345678")
+                .studentId("202114325")
                 .build();
         studentRepository.save(student);
 /*        boolean studentId = studentRepository.existsStudentByStudentId("202117072");
@@ -45,17 +43,18 @@ class LoginServiceTest {
 //        assertThat(password).isEqualTo("cider123");
     }
 
+/*
     @Test
     void tst() {
         LoginForm loginForm = new LoginForm();
         loginForm.setId("202117072");
         loginForm.setPassword("cider123");
-//        Optional<Student> student = loginService.loginCheck(loginForm);
-//        assertThat(student).isNotNull();
+        Student student = new Student();
 
+        Optional<Student> student1 = userService.loginCheck(loginForm);
 
-//        String login = loginController.login(loginForm);
 //        System.out.println(login);
     }
+*/
 
 }

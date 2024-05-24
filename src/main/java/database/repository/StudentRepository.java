@@ -12,6 +12,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 //    @Query(value = "SELECT s from Student s where s.studentId = :student_id")
     public Optional<Student> findStudentsByStudentIdAndAndPassword(String studentId, String password);
 
+    public Optional<Student> findStudentByStudentId(String studentId);
+
     public boolean existsStudentByStudentId(String studentId);
 
     public boolean existsStudentByPassword(String password);

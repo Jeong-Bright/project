@@ -8,13 +8,15 @@
 </head>
 <body>
 <div class="container">
+  <h2 class="welcome-message" th:text="|${session.student.getName()} 님 환영합니다|"></h2>
   <h1>학과 정보</h1>
   <div class="links">
     <a href="basic/introduce" class="btn">학과 소개 이동</a>
-    <a href="member_info.html" class="btn">회원 정보 확인</a>
+    <a href="basic/info" class="btn">회원 정보 확인</a>
     <a href="lecture_list.html" class="btn">강의 목록</a>
     <a href="available_lectures.html" class="btn">수강 가능한 강의</a>
     <a href="competition_ratio.html" class="btn">학과 경쟁률 확인</a>
+    <a href="your_department.html" class="btn">본인 학과 확인</a>
   </div>
 </div>
 </body>
