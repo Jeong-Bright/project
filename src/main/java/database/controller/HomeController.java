@@ -17,30 +17,22 @@ public class HomeController {
 
     private final UserService userService;
 
-    @GetMapping("/intro")
-    public String home(Model model, @SessionAttribute(name = "student", required = false) Student student) {
+    @GetMapping("intro")
+    public String home(Model model, @SessionAttribute(name = "studentLogin", required = false) Student student) {
 
-        Student checkStudent = userService.getStudent(student.getId());
-        if (checkStudent != null) {
-            System.out.println("checkStudent = " + checkStudent);
+        if (student != null) {
             model.addAttribute("name", student.getName());
-        }
-        else {
-            System.out.println("HomeController.home");
+            return "basic/intro";
         }
 
-        return "basic/intro";
+        return "basic/login";
     }
 
-    @GetMapping("/basic/introduce")
+    @GetMapping("introduce")
     public String departmentIntroduce() {
         return "basic/departmentintro";
     }
 
-    @GetMapping("/basic/info")
-    public String studentInfo() {
-        return "basic/departmentintro";
-    }
 
 }
 

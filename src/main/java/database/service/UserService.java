@@ -21,11 +21,18 @@ public class UserService {
     @Autowired
     private final StudentRepository studentRepository;
 
-    public Optional<Student> loginCheck(LoginForm loginForm) {
+    public Student loginCheck(LoginForm loginForm) {
         System.out.println("LoginService.loginCheck");
-        Optional<Student> login = studentRepository.findStudentsByStudentIdAndAndPassword(loginForm.getId(), loginForm.getPassword());
+        Optional<Student> login = studentRepository.findStudentByStudentId(loginForm.getId());
+        if (login.isEmpty()) {
+            return null;
+        }
+        Student student = login.get();
+        if(!student.getPassword().equals(loginForm.getPassword())) {
+            return null;
+        }
 
-        return login;
+        return student;
     }
 
     public List<Student> user() {

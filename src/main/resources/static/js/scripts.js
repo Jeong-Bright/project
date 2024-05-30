@@ -25,8 +25,4 @@ document.addEventListener("DOMContentLoaded", () => {
         fileInput.value = "";
     });
 
-    passwordChangeButton.addEventListener("click", () => {
-        window.location.href = "password-change.html";
-    });
-
 });

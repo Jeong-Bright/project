@@ -1,6 +1,7 @@
 package database.repository;
 
 import database.domain.Student;
+import database.domain.StudentPrefer;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -14,9 +15,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     public Optional<Student> findStudentByStudentId(String studentId);
 
-    public boolean existsStudentByStudentId(String studentId);
-
     public boolean existsStudentByPassword(String password);
 
-
+    Optional<StudentPrefer> findStudentById(Long id);
 }

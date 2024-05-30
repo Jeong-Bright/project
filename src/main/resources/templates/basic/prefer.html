@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>본인 선호학과 페이지</title>
+  <link th:href="@{/css/prefer.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="preferences">
+    <h2>본인 선호학과</h2>
+    <ul th:each="preferList : ${map}">
+      <li>
+        <span th:text = "${preferList.getValue()}"></span>
+      </li>
+    </ul>
+  </div>
+  <button class="back-button" onclick="history.back()">뒤로가기</button>
+</div>
+</body>
+</html>

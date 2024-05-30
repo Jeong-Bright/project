@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.Optional;
 
@@ -24,30 +25,31 @@ public class LoginController {
 
     @GetMapping("/")
     public String loginForm(Model model) {
+
         model.addAttribute("loginForm", new LoginForm());
         return "basic/login";
     }
 
     @PostMapping("/")
-    public String login(@Valid LoginForm loginForm , BindingResult result,
-                        HttpServletRequest request) {
+    public String login(@Valid LoginForm loginForm , BindingResult result
+    , HttpServletRequest request) {
         log.info("id : {}, pwd : {}", loginForm.getId(), loginForm.getPassword());
         if (result.hasErrors()) {
             return "/";
         }
-        Optional<Student> loginCheck = userService.loginCheck(loginForm);
-        Student student = loginCheck.get();
-        if (student != null) {
+
+        Student student = userService.loginCheck(loginForm);
+        HttpSession httpSession = request.getSession(true);
+
+        if (httpSession != null && student != null) {
             System.out.println("성공");
-            HttpSession httpSession = request.getSession(true);
-            httpSession.setAttribute("student", student);
-            return "basic/intro";
+            httpSession.setAttribute("studentLogin", student);
+            return "redirect:/intro";
         }
 
         else {
             System.out.println("오류 발생");
             return "redirect:/";
-
         }
     }
 

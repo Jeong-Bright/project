@@ -1,20 +1,21 @@
 package database.domain;
 
+import database.domain.converter.DepartmentConverter;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
+@Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class DepartmentString {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(value = EnumType.STRING)
+//    @Column(name = "DepartmentList", unique = true)
+    @Convert(converter = DepartmentConverter.class)
     private Departments dpt;
 }

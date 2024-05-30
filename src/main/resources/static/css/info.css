@@ -114,10 +114,16 @@ body {
     margin-top: 30px;
 }
 
-#password-change-btn {
-    display: block;
+.option-buttons {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
-    width: 100%;
+}
+
+#password-change-btn,
+#check-preferences-btn {
+    flex: 1;
+    margin: 0 5px;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -127,7 +133,8 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
-#password-change-btn:hover {
+#password-change-btn:hover,
+#check-preferences-btn:hover {
     background-color: #004d40;
 }
 
@@ -146,11 +153,13 @@ body {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #e0f7fa;
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-#confirm-btn {
-    margin-top: 10px;
-    width: 100%;
+.dropdowns select:hover {
+    border-color: #00796b;
+    background-color: #b2ebf2;
 }
 
 .back-button {

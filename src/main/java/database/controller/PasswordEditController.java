@@ -1,11 +1,16 @@
 package database.controller;
 
+import database.domain.Student;
 import database.service.PasswordEditService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
+import java.util.Objects;
 
 @Controller
 @RequiredArgsConstructor
@@ -13,29 +18,35 @@ public class PasswordEditController {
 
     private final PasswordEditService ps;
 
-    @PostMapping("/edit")
-    public String edit(@Valid EditForm editForm, BindingResult bindingResult) {
+
+    @GetMapping("info/edit")
+    public String editPwdPage(@ModelAttribute("editForm") EditForm editForm) {
+        return "basic/editPassword";
+    }
+
+    @PostMapping("info/edit")
+    public String editPwd(@SessionAttribute(name = "studentLogin", required = false) Student student,
+                          EditForm editForm,
+                          BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "/edit";
+            return "redirect:/";
         }
 
         String editPwd = editForm.getEditPwd();
         String checkPwd = editForm.getCheckPwd();
-        boolean pwd = ps.checkPassword(editForm.getBeforePwd());
 
-        if(pwd && editPwd.equals(checkPwd)) {
-//            ps.
+        if(ps.checkPassword(student.getPassword()) && (Objects.equals(editPwd, checkPwd))) {
+            ps.editPassword(editPwd, student.getId());
+            return "redirect:/info";
         }
 
         else {
-            return "/edit";
+            System.out.println("PasswordEditController.editPwd");
+            return "redirect:/";
         }
 
 
-
-        return "redirect:/info";
     }
-
 
 }

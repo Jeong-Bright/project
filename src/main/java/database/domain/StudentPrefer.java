@@ -1,13 +1,21 @@
 package database.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
 public class StudentPrefer {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PREFER_ID")
     private Long id;
     @Column(name = "PREFER_FIRST")
@@ -24,5 +32,13 @@ public class StudentPrefer {
 
     public StudentPrefer() {
 
+    }
+
+    public void editPrefer(String first, String second, String third, String nonePrefer, Student student) {
+        this.first = first;
+        this.second = second;
+        this.third = third;
+        this.nonePrefer = nonePrefer;
+        this.student = student;
     }
 }
