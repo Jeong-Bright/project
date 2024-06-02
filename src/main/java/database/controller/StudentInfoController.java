@@ -60,7 +60,7 @@ public class StudentInfoController {
     public String myPrefer(@SessionAttribute(name = "studentLogin", required = false) Student student,
                            Model model) {
 
-        Map<String, Optional<StudentPrefer>> studentPreferMap = infoService.departmentPrefer(student.getId());
+        Map<String, String> studentPreferMap = infoService.departmentPrefer(student.getId());
         model.addAttribute("map", studentPreferMap);
 
         if (studentPreferMap == null) {

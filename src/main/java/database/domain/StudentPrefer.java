@@ -24,8 +24,6 @@ public class StudentPrefer {
     private String second;
     @Column(name = "PREFER_THIRD")
     private String third;
-    @Column(name = "NONPREFER")
-    private String nonePrefer;
     @ManyToOne
     @JoinColumn(name = "STUDENT_ID")
     private Student student;
@@ -38,7 +36,6 @@ public class StudentPrefer {
         this.first = first;
         this.second = second;
         this.third = third;
-        this.nonePrefer = nonePrefer;
         this.student = student;
     }
 }

@@ -43,18 +43,16 @@ public class InfoService {
         else return null;
     }
 
-    public Map<String , Optional<StudentPrefer>> departmentPrefer(Long id) {
-        Map<String , Optional<StudentPrefer>> preferMap = new ConcurrentHashMap<>();
+    public Map<String , String> departmentPrefer(Long id) {
+        Map<String , String> preferMap = new ConcurrentHashMap<>();
 
-        Optional<StudentPrefer> byFirst = studentPreferRepository.findByFirst(id);
-        Optional<StudentPrefer> bySecond = studentPreferRepository.findBySecond(id);
-        Optional<StudentPrefer> byThird = studentPreferRepository.findByThird(id);
-        Optional<StudentPrefer> byNonePrefer = studentPreferRepository.findByNonePrefer(id);
+        String byFirst = studentPreferRepository.findByFirst(id);
+        String bySecond = studentPreferRepository.findBySecond(id);
+        String byThird = studentPreferRepository.findByThird(id);
 
         preferMap.put("first", byFirst);
         preferMap.put("second", bySecond);
         preferMap.put("third", byThird);
-        preferMap.put("nonValue", byNonePrefer);
 
         return preferMap;
     }

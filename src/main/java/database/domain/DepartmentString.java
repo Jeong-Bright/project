@@ -18,4 +18,5 @@ public class DepartmentString {
 //    @Column(name = "DepartmentList", unique = true)
     @Convert(converter = DepartmentConverter.class)
     private Departments dpt;
+
 }

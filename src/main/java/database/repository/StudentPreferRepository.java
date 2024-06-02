@@ -13,21 +13,16 @@ public interface StudentPreferRepository extends JpaRepository<StudentPrefer, Lo
     @Query(value = "SELECT sp.first from StudentPrefer sp " +
         "LEFT JOIN Student st ON sp.student.id = st.id " +
         "WHERE sp.id = :id")
-    public Optional<StudentPrefer> findByFirst(Long id);
+    public String findByFirst(Long id);
     @Query(value = "SELECT sp.second from StudentPrefer sp " +
             "LEFT JOIN Student st ON sp.student.id = st.id " +
             "WHERE sp.id = :id")
-    public Optional<StudentPrefer> findBySecond(Long id);
+    public String findBySecond(Long id);
 
     @Query(value = "SELECT sp.third from StudentPrefer sp " +
             "LEFT JOIN Student st ON sp.student.id = st.id " +
             "WHERE sp.id = :id")
-    public Optional<StudentPrefer> findByThird(Long id);
-
-    @Query(value = "SELECT sp.nonePrefer from StudentPrefer sp " +
-            "LEFT JOIN Student st ON sp.student.id = st.id " +
-            "WHERE sp.id = :id")
-    public Optional<StudentPrefer> findByNonePrefer(Long id);
+    public String findByThird(Long id);
 
     public Optional<StudentPrefer> findByStudentId(Long id);
 }

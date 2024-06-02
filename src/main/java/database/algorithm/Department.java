@@ -34,6 +34,7 @@ public class Department {
         for(int i = 0; i < StudentAlgorithm.MAX_APPLY + 1; i++) {
             applyQueues.get(i).clear();
         }
+
     }
 
     /**

@@ -37,7 +37,6 @@ public class MatchingManager {
         while(!nonMatching.isEmpty()) {
             StudentAlgorithm studentAlgorithm = nonMatching.poll();
             int preferNumber = studentAlgorithm.fetchPrefer();
-            System.out.println(studentAlgorithm.fetchPrefer());
             if(preferNumber < studentAlgorithm.getApplyCount()) {
                 preferMatching(studentAlgorithm, preferNumber);
             } else { // n지망까지 모두 떨어졌을 때, 랜덤 매칭

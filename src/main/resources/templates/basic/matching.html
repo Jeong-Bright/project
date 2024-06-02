@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Matching Result</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
+</head>
+<body>
+<div class="container">
+  <h1>Matching Result</h1>
+
+  <div class="department-list">
+    <ul>
+      <li th:each="department : ${departmentsList}">
+        <span class="department-name" th:text="${department.id}">학과</span>
+        <span class="department-info" th:text="|(${department.applicants} / ${department.capacity})|"></span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="summary">
+    <p>매칭된 총 인원: <span th:text="${matchingResult[1]}"></span> / 1000</p>
+    <p>선호도 점수 총합: <span th:text="${matchingResult[0]}"></span> / 3000</p>
+  </div>
+</div>
+</body>
+</html>

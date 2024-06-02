@@ -8,47 +8,12 @@
 </head>
 <body>
 <div class="container">
-  <div class="lecture">
+  <div th:each="index : ${#numbers.sequence(0,5)}" class="lecture">
     <div class="header">
-      <span class="credit">3학점</span>
-      <span class="title">웹 개발 기초</span>
+      <span class="credit" th:text="${credits[index]}">학점</span>
+      <span class="title" th:text="${title[index]}"></span>
     </div>
-    <p class="description">HTML, CSS, JavaScript를 배우는 기초 강의입니다.</p>
-  </div>
-  <div class="lecture">
-    <div class="header">
-      <span class="credit">4학점</span>
-      <span class="title">데이터베이스</span>
-    </div>
-    <p class="description">SQL 및 데이터베이스 설계를 배우는 강의입니다.</p>
-  </div>
-  <div class="lecture">
-    <div class="header">
-      <span class="credit">3학점</span>
-      <span class="title">알고리즘</span>
-    </div>
-    <p class="description">효율적인 알고리즘을 설계하고 분석하는 강의입니다.</p>
-  </div>
-  <div class="lecture">
-    <div class="header">
-      <span class="credit">2학점</span>
-      <span class="title">자료구조</span>
-    </div>
-    <p class="description">기본적인 자료구조를 배우고 구현하는 강의입니다.</p>
-  </div>
-  <div class="lecture">
-    <div class="header">
-      <span class="credit">3학점</span>
-      <span class="title">운영체제</span>
-    </div>
-    <p class="description">운영체제의 원리를 배우는 강의입니다.</p>
-  </div>
-  <div class="lecture">
-    <div class="header">
-      <span class="credit">3학점</span>
-      <span class="title">네트워크</span>
-    </div>
-    <p class="description">컴퓨터 네트워크의 기초를 배우는 강의입니다.</p>
+    <p class="description" th:text="${info[index]}"></p>
   </div>
 </div>
 </body>

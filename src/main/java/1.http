@@ -1,8 +1,15 @@
 ###
-POST http://localhost:8080/
+POST http://localhost:8080
 Content-Type: application/json
 
 {
-  "id": "202117072",
-  "password": "cider123"
+  "id": "202445225",
+  "password": "1234"
 }
+
+
+###
+
+GET http://localhost:8080/myLecture
+Content-Type: application/json
+

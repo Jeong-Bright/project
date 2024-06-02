@@ -6,7 +6,9 @@ import java.util.Random;
 
 import database.domain.Departments;
 import database.domain.Student;
+import database.domain.StudentGrades;
 import database.domain.StudentPrefer;
+import database.repository.StudentGradesRepository;
 import database.repository.StudentPreferRepository;
 import database.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,25 +22,23 @@ public class StudentDataInitializer implements CommandLineRunner {
 
     private final StudentRepository studentRepository;
     private final StudentPreferRepository studentPreferRepository;
-
+    private final StudentGradesRepository studentGradesRepository;
 
     @Override
     public void run(String... args) throws Exception {
         Random random2 = new Random();
 
         for (int i = 1; i <= 1000; i++) {
-            Student student = Student.builder()
-                    .credit(generateCredit(random2))
-                    .email("hello@spring.com")
-                    .name(generateRandomKoreanName(random2))
-                    .password("1234")
-                    .phone("01000000000")
-                    .studentId("2024" + generateRandomStudentId(random2))
-                    .build();
-            studentRepository.save(student);
+            List<Student> students = studentRepository.findAll();
+            Student student1 = students.get(i);
+            StudentGrades student = new StudentGrades();
+            student.setStudent(student1);
+            student.setGrade(generateCredit(random2));
+            studentGradesRepository.save(student);
         }
 
-        List<Student> students = studentRepository.findAll();
+       */
+/* List<Student> students = studentRepository.findAll();
         Random random = new Random(24);
         int cnt = 0;
         for (int i = 0; i < 22; i++) {
@@ -64,7 +64,9 @@ public class StudentDataInitializer implements CommandLineRunner {
             }
                 if(cnt >= 1000) break;
             }
-        }
+        }*//*
+
+    }
     private double generateCredit(Random random) {
         double credit = 1.0 + (4.5 - 1.0) * random.nextDouble();
         return Math.round(credit * 10) / 10.0;
@@ -85,6 +87,8 @@ public class StudentDataInitializer implements CommandLineRunner {
         }
         return studentId.toString();
     }
+
+
 }
 
 */

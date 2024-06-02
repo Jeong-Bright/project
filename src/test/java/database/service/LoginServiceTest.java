@@ -1,6 +1,7 @@
 package database.service;
 
 import database.controller.LoginForm;
+import database.domain.Departments;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ class LoginServiceTest {
     @Test
     void all() {
 //        List<Student> all = studentRepository.findAll();
-        Student student = Student.builder()
+/*        Student student = Student.builder()
                 .credit(0)
                 .email("wjswjdgus333@gmail.com")
                 .name("김성강")
@@ -33,7 +34,7 @@ class LoginServiceTest {
                 .phone("01012345678")
                 .studentId("202114325")
                 .build();
-        studentRepository.save(student);
+        studentRepository.save(student);*/
 /*        boolean studentId = studentRepository.existsStudentByStudentId("202117072");
         assertThat(studentId).isEqualTo(true);
         boolean byPassword = studentRepository.existsStudentByPassword("cider123");
@@ -41,6 +42,8 @@ class LoginServiceTest {
 
 
 //        assertThat(password).isEqualTo("cider123");
+        Departments value = Departments.values()[0];
+        System.out.println("value = " + value);
     }
 
 /*

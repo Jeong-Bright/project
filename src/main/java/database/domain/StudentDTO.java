@@ -18,7 +18,6 @@ public class StudentDTO {
     private String name;
     private String phone;
     private String email;
-    private double credit;
 
 
 }

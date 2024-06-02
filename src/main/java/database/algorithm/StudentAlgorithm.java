@@ -1,5 +1,7 @@
 package database.algorithm;
 
+import database.domain.Student;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,11 +20,11 @@ public class StudentAlgorithm implements Comparable<StudentAlgorithm> {
 
     private int matchingCounter = 0;
 
-    public StudentAlgorithm(String id) {
+    public StudentAlgorithm(Student student) {
         preferred = new LinkedList<>();
         nonPreferred = new LinkedList<>();
-        studentID = id;
-        grade = 0;
+        studentID = String.valueOf(student.getId());
+        grade = student.getCredit();
         matchingCounter = 0;
         matchedDepartment = null;
     }

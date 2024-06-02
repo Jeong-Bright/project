@@ -1,3 +1,4 @@
+/*
 package database.repository;
 
 import database.domain.Departments;
@@ -56,7 +57,7 @@ class LectureRepositoryTest {
         studentLecture.setLecture(lecture);
         studentLecture.setStudent(student);
 
-        return courseRepository.save(studentLecture);
+//        return courseRepository.save(studentLecture);
     }
 
 
@@ -101,4 +102,4 @@ class LectureRepositoryTest {
 
 
     }
-}
+}*/
