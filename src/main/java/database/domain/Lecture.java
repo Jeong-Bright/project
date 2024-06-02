@@ -1,10 +1,10 @@
 package database.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -16,7 +16,7 @@ public class Lecture {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "LECTURE_ID")
     private Long id;
     @Column(name = "LECTURE_NAME")
@@ -29,4 +29,12 @@ public class Lecture {
     private String information;
     @Column(name = "LECTURE_DIVIDE")
     private int devide;
+
+    @OneToMany
+    @JoinColumn(name = "COURSE_ID")
+    private List<StudentLecture> studentLectures = new ArrayList<>();
+
+    public void addCourse(StudentLecture...course) {
+        Collections.addAll(this.studentLectures, course);
+    }
 }

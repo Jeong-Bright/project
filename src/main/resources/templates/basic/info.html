@@ -22,8 +22,8 @@
             <input type="text" id="name" th:value="${name}" readonly>
         </div>
         <div class="info-field">
-            <label for="student-id">학번:</label>
-            <input type="text" id="student-id" th:value="${num}" readonly>
+            <label for="studentAlgorithm-id">학번:</label>
+            <input type="text" id="studentAlgorithm-id" th:value="${num}" readonly>
         </div>
         <div class="info-field">
             <label for="phone">번호:</label>
@@ -59,14 +59,8 @@
                         th:value="${thirdDpt.department}"
                         th:text="${thirdDpt.department}"></option>
             </select>
-            <label for="non-preferred-major">비선호학과:</label>
-            <select id="non-preferred-major"  class="form-select" th:name="noneValue">
-                <option th:each="nonPrefer : ${departmentList}"
-                        th:value="${nonPrefer.department}"
-                        th:text="${nonPrefer.department}"></option>
-            </select>
         </div>
-            <button type="submit" id="confirm-btn">수정 확인</button>
+            <button t3ype="submit" id="confirm-btn">수정 확인</button>
         </form>
     </div>
     <a th:href="intro" class="back-button">&#8592;</a>

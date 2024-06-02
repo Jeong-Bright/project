@@ -35,17 +35,16 @@ public class StudentInfoController {
             @RequestParam("firstValue") String firstValue,
             @RequestParam("secondValue") String secondValue,
             @RequestParam("thirdValue") String thirdValue,
-            @RequestParam("noneValue") String noneValue,
             // 중복체크 -> Set으로
             @SessionAttribute(name = "studentLogin", required = false) Student student
             // Map 형태로 받는거 고려
     ) {
 
         StudentPrefer studentPrefer = infoService
-                .savePrefer(student, firstValue, secondValue, thirdValue, noneValue, student.getId());
+                .savePrefer(firstValue, secondValue, thirdValue,  student.getId());
 
         if (studentPrefer == null) {
-            infoService.updatePrefer(student, firstValue, secondValue, thirdValue, noneValue, student.getId());
+            infoService.updatePrefer(student, firstValue, secondValue, thirdValue, student.getId());
         }
 
         return "redirect:/info";

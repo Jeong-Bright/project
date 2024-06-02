@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -16,9 +17,9 @@ public class Student {
 
 
     @Id
-    @GeneratedValue
-    @Column(name = "STUDENT_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "STUDENT_NUM")
     private String studentId;
     @Column(name = "STUDENT_PWD")
@@ -32,5 +33,12 @@ public class Student {
     @Column(name = "STUDENT_CREDIT")
     private double credit;
 
+    @OneToMany
+    @JoinColumn(name = "COURSE_ID")
+    public List<StudentLecture> studentLectures = new ArrayList<>();
+
+    public void addCourse(StudentLecture ... course) {
+        Collections.addAll(this.studentLectures, course);
+    }
 
 }

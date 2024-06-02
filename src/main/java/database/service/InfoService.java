@@ -21,24 +21,22 @@ public class InfoService {
 
 
     @Transactional
-    public void updatePrefer(Student student, String first, String second, String third, String none, Long id) {
+    public void updatePrefer(Student student, String first, String second, String third, Long id) {
 
         Optional<StudentPrefer> studentPrefer = studentPreferRepository.findByStudentId(id);
 
-        studentPrefer.ifPresent(student_Prefer -> student_Prefer.editPrefer(first, second, third, none, student));
+        studentPrefer.ifPresent(student_Prefer -> student_Prefer.editPrefer(first, second, third, student));
     }
 
-    public StudentPrefer savePrefer(Student student, String first, String second, String third, String none, Long id) {
+    public StudentPrefer savePrefer(String first, String second, String third, Long id) {
         Optional<StudentPrefer> studentPrefer = studentPreferRepository.findByStudentId(id);
 
         if(studentPrefer.isEmpty()) {
             return studentPreferRepository.save(
                     StudentPrefer.builder()
-                            .student(student)
                             .first(first)
                             .second(second)
                             .third(third)
-                            .nonePrefer(none)
                             .build()
             );
         }

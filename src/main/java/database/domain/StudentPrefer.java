@@ -34,7 +34,7 @@ public class StudentPrefer {
 
     }
 
-    public void editPrefer(String first, String second, String third, String nonePrefer, Student student) {
+    public void editPrefer(String first, String second, String third, Student student) {
         this.first = first;
         this.second = second;
         this.third = third;
