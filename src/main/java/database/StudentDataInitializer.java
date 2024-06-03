@@ -36,37 +36,41 @@ public class StudentDataInitializer implements CommandLineRunner {
             student.setGrade(generateCredit(random2));
             studentGradesRepository.save(student);
         }
+//
+// List<Student> students = studentRepository.findAll();
+//        Random random = new Random(24);
+//        int cnt = 0;
+//        for (int i = 0; i < 22; i++) {
+//            int ran = random.nextInt(5);
+//            int chk = (ran % 2 == 0) ? ran : ran - 4;
+//            int p = 0;
+//            int q = 1;
+//            int r = 2;
+//            for (int j = 1; j <= 45 + chk; j++) {
+//                cnt++;
+//                p++; q++; r++;
+//                if(p >= 23) p = 0;
+//                if(q >= 23) p = 0;
+//                if(r >= 23) p = 0;
+//
+//                Student student = students.get(cnt);
+//                Departments departmentEnum = Departments.values()[p];
+//                Departments departmentEnum2 = Departments.values()[q];
+//                Departments departmentEnum3 = Departments.values()[r];
+//
+//                studentPreferRepository.save(StudentPrefer.builder()
+//                        .student(student)
+//                        .first(departmentEnum.getDepartment())
+//                        .second(departmentEnum2.getDepartment())
+//                        .third(departmentEnum3.getDepartment())
+//                        .build());
+//
+//            }
+//                if(cnt >= 1000) break;
+//            }
+        }
 
-       */
-/* List<Student> students = studentRepository.findAll();
-        Random random = new Random(24);
-        int cnt = 0;
-        for (int i = 0; i < 22; i++) {
-            int ran = random.nextInt(5);
-            int chk = (ran % 2 == 0) ? ran : ran - 4;
-            int p = 0;
-            for (int j = 1; j <= 45 + chk; j++) {
-                cnt++;
-                p++;
-                if(p >= 23) p = 0;
-                Student student = students.get(cnt);
-                Departments departmentEnum = Departments.values()[p];
-                Departments departmentEnum2 = Departments.values()[p+1];
-                Departments departmentEnum3 = Departments.values()[p+2];
 
-                studentPreferRepository.save(StudentPrefer.builder()
-                        .student(student)
-                        .first(departmentEnum.getDepartment())
-                        .second(departmentEnum2.getDepartment())
-                        .third(departmentEnum3.getDepartment())
-                        .build());
-
-            }
-                if(cnt >= 1000) break;
-            }
-        }*//*
-
-    }
     private double generateCredit(Random random) {
         double credit = 1.0 + (4.5 - 1.0) * random.nextDouble();
         return Math.round(credit * 10) / 10.0;

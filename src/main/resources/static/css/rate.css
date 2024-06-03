@@ -1,0 +1,34 @@
+.department-ratio-section {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* 요소를 수직으로 정렬 */
+    align-items: center; /* 요소를 수직 가운데 정렬 */
+}
+
+.department-ratio-table-wrapper {
+    width: 30%;
+    margin-top: 20px;
+}
+
+.department-ratio-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    font-size: 12px;
+    margin-bottom: 10px; /* 텍스트와의 간격을 조절하기 위해 추가 */
+}
+
+.department-ratio-text {
+    text-align: center; /* 텍스트를 가운데로 정렬 */
+}
+
+.department-ratio-table th, .department-ratio-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    text-align: center;
+}
+
+.department-ratio-table th {
+    background-color: #f2f2f2;
+}

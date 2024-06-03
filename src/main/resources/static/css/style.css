@@ -1,37 +1,27 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column; /* 중앙 위쪽에 환영 메시지를 위치시키기 위해 수직 정렬을 설정 */
-}
-
 .container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 화면 전체 높이로 설정 */
+}
+
+.header {
     text-align: center;
-    width: 90%; /* 너비 조정 */
-}
-
-h1 {
-    color: #333;
-}
-
-.welcome-message {
-    color: #007bff; /* 환영 메시지 색상 설정 */
-    margin-bottom: 20px; /* 환영 메시지와 타이틀 사이의 간격 설정 */
 }
 
 .links {
     margin-top: 20px;
+    text-align: center;
 }
 
 .links .btn {
     display: inline-block;
     margin: 10px;
-    padding: 10px 20px;
+    padding: 8px 16px;
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
@@ -41,33 +31,4 @@ h1 {
 
 .links .btn:hover {
     background-color: #0056b3;
-}
-
-.department-ratio-table {
-    margin-top: 20px;
-    width: 100%; /* 너비를 100%로 설정 */
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fff;
-    font-size: 12px; /* 폰트 크기 조정 */
-}
-
-.department-ratio-table th, .department-ratio-table td {
-    border: 1px solid #ddd;
-    padding: 6px; /* 패딩 조정 */
-    text-align: center;
-}
-
-.department-ratio-table th {
-    background-color: #007bff;
-    color: white;
-}
-
-.department-ratio-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.department-ratio-table tr:hover {
-    background-color: #ddd;
 }

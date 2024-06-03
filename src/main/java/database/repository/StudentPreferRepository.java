@@ -25,4 +25,9 @@ public interface StudentPreferRepository extends JpaRepository<StudentPrefer, Lo
     public String findByThird(Long id);
 
     public Optional<StudentPrefer> findByStudentId(Long id);
+
+    public int countByFirst(String dep);
+    public int countBySecond(String dep);
+    public int countByThird(String dep);
+
 }

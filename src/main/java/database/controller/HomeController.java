@@ -1,21 +1,24 @@
 package database.controller;
 
 import database.domain.Student;
-import database.service.UserService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-import lombok.RequiredArgsConstructor;
+import database.service.RateService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import java.util.Map;
+
 @Controller
-@RequiredArgsConstructor
 public class HomeController {
 
-    private final UserService userService;
+    private final RateService rateService;
+
+    @Autowired
+    public HomeController(RateService rateService) {
+        this.rateService = rateService;
+    }
 
     @GetMapping("intro")
     public String home(Model model, @SessionAttribute(name = "studentLogin", required = false) Student student) {
@@ -26,6 +29,15 @@ public class HomeController {
         }
 
         return "basic/login";
+    }
+
+    @GetMapping("rate")
+    public String ratePage(Model model) {
+
+        Map<String, Double> rateMap = rateService.rateCount();
+        model.addAttribute("rate", rateMap);
+
+        return "basic/rate";
     }
 
     @GetMapping("introduce")

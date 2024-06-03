@@ -10,10 +10,10 @@
 <div class="container">
   <div class="preferences">
     <h2>본인 선호학과</h2>
-    <ul th:each="preferList : ${map}">
-      <li>
-        <span th:text = "${preferList.getValue()}"></span>
-      </li>
+    <ul>
+      <li th:text="${map['first']}">1지망</li>
+      <li th:text="${map['second']}">2지망</li>
+      <li th:text="${map['third']}">3지망</li>
     </ul>
   </div>
   <button class="back-button" onclick="history.back()">뒤로가기</button>

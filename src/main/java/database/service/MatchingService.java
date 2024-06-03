@@ -44,11 +44,11 @@ public class MatchingService {
             Student studentGrades = studentList.get(i);
 
             StudentAlgorithm studentAlgorithm = new StudentAlgorithm(studentGrades);
-            String byFirst = studentPreferRepository.findByFirst(studentGrades.getId());
+            String byFirst = String.valueOf(studentPreferRepository.findByFirst(studentGrades.getId()));
             studentAlgorithm.addPreferred(byFirst);
-            String bySecond = studentPreferRepository.findBySecond(studentGrades.getId());
+            String bySecond = String.valueOf(studentPreferRepository.findBySecond(studentGrades.getId()));
             studentAlgorithm.addPreferred(bySecond);
-            String byThird = studentPreferRepository.findByThird(studentGrades.getId());
+            String byThird = String.valueOf(studentPreferRepository.findByThird(studentGrades.getId()));
             studentAlgorithm.addPreferred(byThird);
 
             students.add(studentAlgorithm);

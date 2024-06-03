@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학과 정보</title>
+  <link th:href="@{/css/rate.css}" rel="stylesheet">
+</head>
+<body>
+<div class="department-ratio-section">
+  <h3 class="department-ratio-text">학과 경쟁률</h3>
+  <div class="department-ratio-table-wrapper">
+    <table class="department-ratio-table">
+  <table class="department-ratio-table">
+    <thead>
+    <tr>
+      <th>학과 이름</th>
+      <th>경쟁률 (%)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="entry : ${rate}">
+      <td th:text="${entry.getKey()}"></td>
+      <td th:text="${entry.getValue()}"></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</body>
+</html>
