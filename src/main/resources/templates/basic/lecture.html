@@ -10,7 +10,7 @@
 <div class="container">
   <div th:each="index : ${#numbers.sequence(0,5)}" class="lecture">
     <div class="header">
-      <span class="credit" th:text="${credits[index]}">학점</span>
+      <span class="credit" th:text="${credits[index]}"></span>
       <span class="title" th:text="${title[index]}"></span>
     </div>
     <p class="description" th:text="${info[index]}"></p>

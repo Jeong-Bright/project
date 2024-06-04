@@ -16,7 +16,7 @@ public class StudentLecture {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "COURSE_ID")
+    @Column(name = "STUDENT_LECTURE_ID")
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "LECTURE_ID")

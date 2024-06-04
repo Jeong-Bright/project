@@ -34,7 +34,7 @@ public class Student {
     private double credit;
 
     @OneToMany
-    @JoinColumn(name = "COURSE_ID")
+    @JoinColumn(name = "STUDENT_LECTURE_ID")
     public List<StudentLecture> studentLectures = new ArrayList<>();
 
     public void addCourse(StudentLecture ... course) {

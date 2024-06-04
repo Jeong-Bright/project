@@ -31,7 +31,7 @@ public class Lecture {
     private int devide;
 
     @OneToMany
-    @JoinColumn(name = "COURSE_ID")
+    @JoinColumn(name = "STUDENT_LECTURE_ID")
     private List<StudentLecture> studentLectures = new ArrayList<>();
 
     public void addCourse(StudentLecture...course) {

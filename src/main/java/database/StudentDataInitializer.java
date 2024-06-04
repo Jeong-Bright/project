@@ -29,6 +29,16 @@ public class StudentDataInitializer implements CommandLineRunner {
         Random random2 = new Random();
 
         for (int i = 1; i <= 1000; i++) {
+            studentRepository.save(Student.builder()
+                    .credit(generateCredit(random2))
+                    .name(generateRandomKoreanName(random2))
+                    .password("1234")
+                    .phone("01000000000")
+                    .studentId(2024 + generateRandomStudentId(random2))
+                    .build());
+        }
+
+        for (int i = 1; i <= 1000; i++) {
             List<Student> students = studentRepository.findAll();
             Student student1 = students.get(i);
             StudentGrades student = new StudentGrades();
@@ -36,38 +46,40 @@ public class StudentDataInitializer implements CommandLineRunner {
             student.setGrade(generateCredit(random2));
             studentGradesRepository.save(student);
         }
+
 //
-// List<Student> students = studentRepository.findAll();
-//        Random random = new Random(24);
-//        int cnt = 0;
-//        for (int i = 0; i < 22; i++) {
-//            int ran = random.nextInt(5);
-//            int chk = (ran % 2 == 0) ? ran : ran - 4;
-//            int p = 0;
-//            int q = 1;
-//            int r = 2;
-//            for (int j = 1; j <= 45 + chk; j++) {
-//                cnt++;
-//                p++; q++; r++;
-//                if(p >= 23) p = 0;
-//                if(q >= 23) p = 0;
-//                if(r >= 23) p = 0;
-//
-//                Student student = students.get(cnt);
-//                Departments departmentEnum = Departments.values()[p];
-//                Departments departmentEnum2 = Departments.values()[q];
-//                Departments departmentEnum3 = Departments.values()[r];
-//
-//                studentPreferRepository.save(StudentPrefer.builder()
-//                        .student(student)
-//                        .first(departmentEnum.getDepartment())
-//                        .second(departmentEnum2.getDepartment())
-//                        .third(departmentEnum3.getDepartment())
-//                        .build());
-//
-//            }
-//                if(cnt >= 1000) break;
-//            }
+ List<Student> students = studentRepository.findAll();
+        Random random = new Random(24);
+        int cnt = 0;
+        for (int i = 0; i < 22; i++) {
+            int ran = random.nextInt(5);
+            int chk = (ran % 2 == 0) ? ran : ran - 4;
+            int p = 0;
+            int q = 1;
+            int r = 2;
+            for (int j = 1; j <= 45 + chk; j++) {
+
+
+                if(p >= 25) p = 0;
+                if(q >= 25) q = 0;
+                if(r >= 25) r = 0;
+
+                Student student = students.get(cnt);
+                Departments departmentEnum = Departments.values()[p];
+                Departments departmentEnum2 = Departments.values()[q];
+                Departments departmentEnum3 = Departments.values()[r];
+
+                studentPreferRepository.save(StudentPrefer.builder()
+                        .student(student)
+                        .first(departmentEnum.getDepartment())
+                        .second(departmentEnum2.getDepartment())
+                        .third(departmentEnum3.getDepartment())
+                        .build());
+
+                p++; q++; r++; cnt++;
+            }
+                if(cnt >= 1000) break;
+            }
         }
 
 
